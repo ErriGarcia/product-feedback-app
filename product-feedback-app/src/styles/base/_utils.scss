@@ -1,0 +1,471 @@
+// =============================================================================
+// Convertion unit from PX to REM only. DO NOT USE AS VARIABLE!!!
+// =============================================================================
+$base-font-size: 16px;
+
+// ----------------------------------------------------------------
+// Functions units conversions
+// ----------------------------------------------------------------
+
+// USE CASE: property: rem(value) {}
+// =============================================================================
+
+// Remove the unit of a length
+/// @param {Number} $number - Number to remove unit from
+/// @return {Number} - Unitless number
+@function strip-unit($number) {
+  @if type-of($number)=='number'and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+
+  @return $number;
+}
+
+// Make px to rems using base-font-size
+// echo as: font-size: rem(#px);
+// function returns numeric value (no interpolation) in rem
+@function rem($size, $context: $base-font-size) {
+  $remSize: strip-unit($size) / strip-unit($context);
+  @return $remSize * 1rem;
+}
+
+// =============================================================================
+// BREAKPOINTS FOR MEDIA-QUERY
+// =============================================================================
+
+// USE CASE: @include breakpoint(phone/tablet/tablet-only...) {}
+// =============================================================================
+
+// !!! ADAPT BREAKPOINT VALUES TO PROJECT & TO BOOTSTRAP GRID !!
+// =============================================================================
+$breakpoints: (highResolution: 1980px,
+  mediumResolution: 1366px,
+  minResolution: 1024px) !default;
+
+$tablet-device-width: map-get($breakpoints, 'minResolution');
+$document-width: map-get($breakpoints, 'mediumResolution');
+$max-device-width: map-get($breakpoints, 'highResolution');
+
+// =============================================================================
+// Mixins
+// =============================================================================
+
+// Breakpoints list:
+
+// - tablet : <1024
+// - desktop: <1366
+// - desktop-only: 1024-1366
+// - large-desktop: <1980
+// - large-desktop-only: 1366-1980
+// - fullhd: >1980
+// - print
+
+@mixin breakpoint($media) {
+  @if $media==tablet {
+    @media only screen and (max-width: ($tablet-device-width - 0.2px)) {
+      @content;
+    }
+  }
+
+  @else if $media==desktop {
+    @media only screen and (max-width: ($document-width - 0.2px)) {
+      @content;
+    }
+  }
+
+  @else if $media==desktop-only {
+    @media only screen and (min-width: $tablet-device-width) and (max-width: ($document-width - 0.2px)) {
+      @content;
+    }
+  }
+
+  @else if $media==large-desktop {
+    @media only screen and (max-width: ($max-device-width - 0.2px)) {
+      @content;
+    }
+  }
+
+  @else if $media==large-desktop-only {
+    @media only screen and (min-width: $document-width) and (max-width: ($max-device-width - 0.2px)) {
+      @content;
+    }
+  }
+
+  @else if $media==fullhd {
+    @media only screen and (min-width: $max-device-width) {
+      @content;
+    }
+  }
+
+  @else if $media==print {
+    @media print {
+      @content;
+    }
+  }
+
+  @else {
+    @media screen and (#{$media}) {
+      @content;
+    }
+  }
+}
+
+// Alias for breakpoint
+@mixin respond($media) {
+  @include breakpoint($media) {
+    @content;
+  }
+}
+
+// =============================================================================
+// OPACITY
+// =============================================================================
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  $opacity-ie: $opacity * 100;
+  filter: alpha(opacity=$opacity-ie); //IE8
+}
+
+// =============================================================================
+// WIDTH
+// =============================================================================
+// Configurable vars.
+$width-classname: 'w' !default;
+$width-number-classname: (100: 100%, // 1 col
+  75: 75%,
+  50: 50%, // 2 cols
+  33: 33.33%, // 3 cols
+  25: 25%, // 4 cols
+  20: 20%, // 5 cols
+  16: 16.66%, // 6 cols
+);
+
+// =============================================================================
+// Interface
+//
+// CSS Class:
+//
+//   .w-[100, 75, 50, 33, 25, 20, 16]
+//   .w-[100, 75, 50, 33, 25, 20, 16]-sm    // between 1024-1366
+//   .w-[100, 75, 50, 33, 25, 20, 16]-md    // between 1366-1980
+//   .w-[100, 75, 50, 33, 25, 20, 16]-lg    // between >1980
+// =============================================================================
+.#{$width-classname} {
+
+  @each $label,
+  $value in $width-number-classname {
+    &-#{$label} {
+      display: inline-block;
+      width: $value !important;
+    }
+
+    &-#{$label}-sm {
+      & {
+        @include breakpoint(desktop-only) {
+          display: inline-block;
+          width: $value !important;
+        }
+      }
+    }
+
+    &-#{$label}-md {
+      & {
+        @include breakpoint(large-desktop-only) {
+          display: inline-block;
+          width: $value !important;
+        }
+      }
+    }
+
+    &-#{$label}-lg {
+
+      &,
+      &[class*="#{$width-classname}-"] {
+        @include breakpoint(fullhd) {
+          display: inline-block;
+          width: $value !important;
+        }
+      }
+    }
+
+  }
+}
+
+// =============================================================================
+// Screen readers
+// =============================================================================
+// Only display content to screen readers
+@mixin sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  clip-path: inset(50%);
+  border: 0;
+}
+
+// =============================================================================
+// CLEARFIX
+// =============================================================================
+@mixin clearfix() {
+  &::after {
+    display: block;
+    clear: both;
+    content: '';
+  }
+}
+
+// =============================================================================
+// center content inside parent content
+// useful in icons centering (ex: .icon:before { @include center(); } )
+// =============================================================================
+@mixin center {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+// =============================================================================
+// TEXT TRUNCATE
+// Text overflow -- Needs to be block or inline-block.
+// =============================================================================
+@mixin text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin text-truncate-multiline($font-size: 16px,
+  $line-height: 1.4,
+  $lines: 2,
+  $color: $gray-blue-medium-dark) {
+  display: block;
+  display: -webkit-box;
+  height: $font-size * $line-height * $lines;
+  font-size: $font-size;
+  line-height: $line-height;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  color: $color;
+  height: rem(48);
+}
+
+// =============================================================================
+// BOX SIZING
+// =============================================================================
+@mixin box-sizing($box-model) {
+  -webkit-box-sizing: $box-model; // Safari <= 5
+  -moz-box-sizing: $box-model; // Firefox <= 19
+  box-sizing: $box-model;
+}
+
+// =============================================================================
+//
+// MARGINS like CLASS
+//
+// =============================================================================
+// Configurable vars.
+$margin-classname: 'm' !default;
+$margin-number-classname: (0: rem(0),
+  8: rem(8),
+  16: rem(16),
+  24: rem(24),
+  32: rem(32),
+  40: rem(40),
+  48: rem(48),
+  64: rem(64));
+
+// =============================================================================
+// Interface
+//
+// CSS Class:
+//
+//   .m-t_[0,8,16,24,32,40,48,64]
+//   .m-b_[0,8,16,24,32,40,48,64]
+//   .m-t_[0,8,16,24,32,40,48,64]-xs
+//   .m-b_[0,8,16,24,32,40,48,64]-xs
+// =============================================================================
+.#{$margin-classname} {
+
+  // Top
+  @each $label,
+  $value in $margin-number-classname {
+    &-t_#{$label} {
+      margin-top: $value !important;
+    }
+
+    &-t_#{$label}-xs {
+
+      &,
+      &[class*='#{$margin-classname}-t_'] {
+        @include breakpoint(phone) {
+          margin-top: $value !important;
+        }
+      }
+    }
+  }
+
+  // Bottom
+  @each $label,
+  $value in $margin-number-classname {
+    &-b_#{$label} {
+      margin-bottom: $value !important;
+    }
+
+    &-b_#{$label}-xs {
+
+      &,
+      &[class*='#{$margin-classname}-b_'] {
+        @include breakpoint(phone) {
+          margin-bottom: $value !important;
+        }
+      }
+    }
+  }
+
+  // Left
+  @each $label,
+  $value in $margin-number-classname {
+    &-l_#{$label} {
+      margin-left: $value !important;
+    }
+
+    &-l_#{$label}-xs {
+
+      &,
+      &[class*="#{$margin-classname}-l_"] {
+        @include breakpoint(phone) {
+          margin-left: $value !important;
+        }
+      }
+    }
+  }
+
+  // Right
+  @each $label,
+  $value in $margin-number-classname {
+    &-r_#{$label} {
+      margin-right: $value !important;
+    }
+
+    &-r_#{$label}-xs {
+
+      &,
+      &[class*="#{$margin-classname}-r_"] {
+        @include breakpoint(phone) {
+          margin-right: $value !important;
+        }
+      }
+    }
+  }
+}
+
+
+
+// =============================================================================
+//
+// PADDINGS like CLASS
+//
+// =============================================================================
+// Configurable vars.
+$padding-classname: 'p' !default;
+$padding-number-classname: (0: rem(0),
+  8: rem(8),
+  16: rem(16),
+  24: rem(24),
+  32: rem(32),
+  40: rem(40),
+  48: rem(48),
+  64: rem(64));
+
+// =============================================================================
+// Interface
+//
+// CSS Class:
+//
+//   .p-t_[0,8,16,24,32,40,48,64]
+//   .p-b_[0,8,16,24,32,40,48,64]
+//   .p-t_[0,8,16,24,32,40,48,64]-xs
+//   .p-b_[0,8,16,24,32,40,48,64]-xs
+// =============================================================================
+.#{$padding-classname} {
+
+  // Top
+  @each $label,
+  $value in $padding-number-classname {
+    &-t_#{$label} {
+      padding-top: $value !important;
+    }
+
+    &-t_#{$label}-xs {
+
+      &,
+      &[class*='#{$padding-classname}-t_'] {
+        @include breakpoint(phone) {
+          padding-top: $value !important;
+        }
+      }
+    }
+  }
+
+  // Bottom
+  @each $label,
+  $value in $padding-number-classname {
+    &-b_#{$label} {
+      padding-bottom: $value !important;
+    }
+
+    &-b_#{$label}-xs {
+
+      &,
+      &[class*='#{$padding-classname}-b_'] {
+        @include breakpoint(phone) {
+          padding-bottom: $value !important;
+        }
+      }
+    }
+  }
+
+  // Left
+  @each $label,
+  $value in $padding-number-classname {
+    &-l_#{$label} {
+      padding-left: $value !important;
+    }
+
+    &-l_#{$label}-xs {
+
+      &,
+      &[class*="#{$padding-classname}-l_"] {
+        @include breakpoint(phone) {
+          p-left: $value !important;
+        }
+      }
+    }
+  }
+
+  // Right
+  @each $label,
+  $value in $padding-number-classname {
+    &-r_#{$label} {
+      padding-right: $value !important;
+    }
+
+    &-r_#{$label}-xs {
+
+      &,
+      &[class*="#{$padding-classname}-r_"] {
+        @include breakpoint(phone) {
+          padding-right: $value !important;
+        }
+      }
+    }
+  }
+}

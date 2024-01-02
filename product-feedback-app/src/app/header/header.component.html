@@ -1,0 +1,27 @@
+<header class="header">
+    <div>
+        <h1 class="header-container-title">Frontend Mentor</h1>
+        <h2 class="header-container-subtitle">Feedback Board</h2>
+    </div>
+    <button (click)="toggleMenu()">
+        <img src="../../assets/shared/mobile/icon-hamburger.svg" alt="icon-menu">
+    </button>
+</header>
+<main></main>
+@if (isMenuOpen) {
+    <div class="wrapper">
+        <nav>
+        <label class="m-menu__overlay" for="menu"></label>
+          <div class="m-menu">
+            <ul>
+              <li><label>Item 1</label></li>
+              <li><label>Item 2</label></li>
+              <li><label>Item 3</label></li>
+              <li><label>Item 4</label></li>
+            </ul>  
+          </div>
+        </nav>
+    </div>
+} @else {
+    cerrado
+}
