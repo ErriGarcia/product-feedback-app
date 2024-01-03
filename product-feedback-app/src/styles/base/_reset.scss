@@ -37,6 +37,12 @@ video {
   display: inline-block;
   vertical-align: baseline;
 }
+ul {
+  list-style-type: none;
+}
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+}
 audio:not([controls]) {
   display: none;
   height: 0;

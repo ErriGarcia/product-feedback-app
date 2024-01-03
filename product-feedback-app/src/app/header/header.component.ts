@@ -1,14 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+import { MenuComponent } from '../menu/menu.component';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [],
+  imports: [MenuComponent],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
-  isMenuOpen: boolean = false;
+  isMenuOpen: boolean = true;
 
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;

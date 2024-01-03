@@ -1,0 +1,27 @@
+<div class="wrapper">
+    <nav>
+    <label class="m-menu_overlay" for="menu"></label>
+      <div class="m-menu">
+        <div class="container">
+            @for (button of buttonsMenu; track button.id) {
+                    <button class="button">{{ button.nameButton }}</button>
+            }
+        </div>
+        <div class="container">
+            <div class="container_header">
+                <h2 class="container_header_title">Roadmap</h2>
+                <button class="container_header_button">View</button>
+            </div>
+            @for (status of roadmapStatus; track status.id) {
+                <div class="list-container">
+                    <div class="title-container">
+                        <div [className]="status.color"></div>
+                        <p class="title-status">{{ status.nameStatus }}</p>
+                    </div>
+                    <p class="number-status">2</p>
+                </div>
+            }
+        </div>
+      </div>
+    </nav>
+</div>
