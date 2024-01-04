@@ -1,0 +1,25 @@
+@import '../../styles/base/settings';
+
+.sort-container {
+    background-color: #373F68;
+    color: $white;
+    font-size: 13px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 24px;
+
+    &_title-container {
+        display: flex;
+
+        &_title {
+            font-weight: 500;
+        }
+
+        &_select {
+            background-color: transparent;
+            border: none;
+            font-weight: 700;
+        }
+    }
+}

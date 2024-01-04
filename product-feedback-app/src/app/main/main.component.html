@@ -1,0 +1,17 @@
+<div class="sort-container">
+    <div class="sort-container_title-container">
+        <h3 class="sort-container_title-container_title"> Sort by :</h3>
+            <label for="sort"></label>
+            <select class="sort-container_title-container_select" id="sort" [disabled]="false">
+                @for (item of menuItems; track item) {
+                    <option>
+                        {{item.name}}
+                    <option>
+                }
+            </select>
+        </div>
+        <button class="primary-button">+ Add Feedback</button>
+    </div>
+<main>
+    
+</main>

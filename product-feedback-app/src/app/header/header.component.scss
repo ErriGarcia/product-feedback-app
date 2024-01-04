@@ -1,6 +1,8 @@
+@import '../../styles/base/settings';
+
 .header {
     padding: 1rem 1.5rem;
-    background: linear-gradient(to left top, #E84D70, #A337F6, #28A7ED);
+    background: linear-gradient(to left top, $red, $violet, $blue-light);
     color: white;
     display: flex;
     justify-content: space-between;

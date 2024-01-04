@@ -6,103 +6,85 @@
 $white: #ffffff;
 $black: #000000;
 
-$gray-dark: #3c3c3c;
-$gray: #777777;
-$gray-light: #9a9a9a;
-$gray-light-2: #d2d2d2;
-$gray-light-3: #eeeeee;
-$gray-light-4: #f6f6f6;
-$gray-light-5: #EFEFEF;
+$gray-extra-dark: #3A4374;
+$gray-dark: #647196;
+$gray: #F2F4FF;
+$gray-light: #F7F8FD;
 
-$red: #e63329;
-$orange: #ffab26;
-$green: #89d05b;
-$blue: #01406d;
-$blue-light: #015fac;
-$blue-extra-light: #d4eaf9;
+$violet: #AD1FEA;
+$orange: #F49F85;
+$blue: #4661E6;
+$blue-light: #62BCFA;
+$red: #D73737;
 
 // Status color
 $danger-color: $red;
-$success-color: $green;
-// $info-color: $blue-light;
-// $warning-color: $orange;
+$success-color: $blue;
 
 // Input
 $label-color: $gray;
 $label-color--focus: $gray-dark;
-$label-color--disabled: $gray-light-2;
+$label-color--disabled: $gray-light;
 $label-color--error: $danger-color;
 $placeholder-color: $gray-light;
-$placeholder-color--disabled: $gray-light-3;
+$placeholder-color--disabled: $gray-light;
+$background-color: $gray-light;
 
 // Border and line
-$border-color: $gray-light-3;
+$border-color: $blue;
 $border-line: 1px solid $border-color;
-$border-line-input: 1px solid $gray;
+$border-line-input: 1px solid $blue;
 $border-line-input--focus: 1px solid $gray-dark;
-$border-line-input--disabled: 1px solid $gray-light-2;
+$border-line-input--disabled: 1px solid $gray-light;
 $border-line-input--error: 1px solid $danger-color;
 $border-line-checkbox: 2px solid $gray-light;
 $border-line-checkbox--active: 2px solid $blue;
-$border-line-checkbox--disabled: 2px solid $gray-light-3;
+$border-line-checkbox--disabled: 2px solid $gray-light;
 
 // Button
 $primary-button-color: $white;
 $primary-button-color--disabled: $gray-light;
-$primary-button-bg: $blue;
-$primary-button-bg--hover: rgba($blue, 0.8);
-$primary-button-bg--disabled: $gray-light-3;
-$secondary-button-color: $gray-dark;
-$secondary-button-color--hover: rgba($gray-dark, 0.8);
+$primary-button-bg: $violet;
+$primary-button-bg--hover: rgba($violet, 0.8);
+$primary-button-bg--disabled: $gray-light;
+$secondary-button-color: $blue;
+$secondary-button-color--hover: rgba($blue, 0.8);
 $secondary-button-color--disabled: $gray-light;
 $secondary-button-bg: transparent;
-$terciary-button-color: $gray-dark;
-$terciary-button-color--hover: rgba($gray-dark, 0.8);
+$terciary-button-color: $gray-extra-dark;
+$terciary-button-color--hover: rgba($gray-extra-dark, 0.8);
 $terciary-button-color--disabled: $gray-light;
-$link-button-color: $blue;
-$link-button-color--hover: $blue-light;
-$link-button-color--disabled: $gray-light-3;
+$link-button-color: $gray-dark;
+$link-button-color--hover: $gray-dark;
 
 // Background
-$bg-color: $gray-light-3;
-
-// Table
-$bg-table-row--selected: $gray-light-5;
-$text-table-marker: $red;
-$status-table--blocked: $red;
-$status-table--opened: $green;
-$status-table--closed: $orange;
-$border-line-table: $gray-light-3;
-$border-line-table--header: $gray-light-2;
-
-// Tabs
-$tab-active-line: $blue;
+$bg-color: $gray-light;
 
 // select
-$select-arrow-color: $black;
-$select-arrow-color--disabled: $gray-light-2;
+$select-arrow-color: $violet;
+$select-arrow-color--disabled: $gray-light;
 $select-arrow-color--invalid: $red;
 $select-label-color: $gray;
-$select-label-color--disabled: $gray-light-2;
+$select-label-color--disabled: $gray-light;
 $select-label-color--invalid: $red;
 $select-option-color--selected: $blue;
-$select-option-bg--selected: $gray-light-4;
+$select-option-bg--selected: $gray-light;
 $select-option-bg--focused: $blue;
-$select-option-bg--disabled: $gray-light-2;
+$select-option-bg--disabled: $gray-light;
 $select-border--invalid: $red;
 $select-msg--invalid: $red;
 
 // datepicker
 $datepicker-label-color: $gray;
 $datepicker-option-bg--focused: $blue;
-$datepicker-label-color--disabled: $gray-light-2;
-$datepicker-option-bg--disabled: $gray-light-2;
-$datepicker-hint-color--disabled: $gray-light-2;
-$datepicker-arrow-color--disabled: $gray-light-2;
+$datepicker-label-color--disabled: $gray-light;
+$datepicker-option-bg--disabled: $gray-light;
+$datepicker-hint-color--disabled: $gray-light;
+$datepicker-arrow-color--disabled: $gray-light;
 $datepicker-date-bg--selected: $blue;
 $datepicker-icon-color--active: $blue;
 $datepicker-icon-bg--focus: $blue;
-$datepicker-calendar-date--hover: $blue-extra-light;
+$datepicker-calendar-date--hover: $blue;
 $datepicker-calendar-date--selected: $blue;
 $datepicker-label-color--invalid: $red;
 $datepicker-msg--invalid: $red;
@@ -111,3 +93,13 @@ $datepicker-border--invalid: $red;
 // slider
 $slider-track-bg: $gray-light;
 $slider-track-fill-bg: $blue;
+
+
+// TODO: create new file for buttons style
+.primary-button {
+    background-color: #AD1FEA;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 10px 16px;
+    border-radius: 10px;
+}

@@ -1,3 +1,5 @@
+@import '../../styles/base/settings';
+
 nav .m-menu {
     position: absolute;
     top: 74px;
@@ -8,7 +10,7 @@ nav .m-menu {
     transition: transform 0.35s;
     z-index: 2;
     overflow: hidden;
-    background-color: #F7F8FD;
+    background-color: $gray-light;
     padding: 24px;
     display: flex;
     flex-direction: column;
@@ -17,7 +19,7 @@ nav .m-menu {
 }
 
 nav .m-menu_overlay {
-    background-color: #F7F8FD;
+    background-color: $gray-light;
     position: absolute;
     top: 0;
     width: 100%;
@@ -27,7 +29,8 @@ nav .m-menu_overlay {
 }
 
 .container {
-    background-color: white;
+
+    background-color: $white;
     padding: 24px;
     border-radius: 10px;
     width: 223px;
@@ -45,19 +48,19 @@ nav .m-menu_overlay {
         align-items: center;
 
         &_title {
-            color: #3A4374;
+            color: $gray-extra-dark;
         }
 
         &_button {
             text-decoration: underline;
-            color: #4661E6;
+            color: $blue;
         }
     }
 }
 
 .button {
     font-weight: 700;
-    color: #4661E6;
+    color: $blue;
     background-color: #F2F4FF;
     padding: 6px 16px;
     border-radius: 10px;
@@ -65,7 +68,7 @@ nav .m-menu_overlay {
 
     &:hover {
         color: white;
-        background-color: #4661E6;
+        background-color: $blue;
     }
 }
 
@@ -81,33 +84,33 @@ nav .m-menu_overlay {
         column-gap: 16px;
     
         .pink {
-            background-color: #F49F85;
+            background-color: $orange;
             width: 8px;
             height: 8px;
             border-radius: 100%;
         }
     
         .violet {
-            background-color: #AD1FEA;
+            background-color: $violet;
             width: 8px;
             height: 8px;
             border-radius: 100%;
         }
     
         .light-blue {
-            background-color: #62BCFA;
+            background-color: $blue-light;
             width: 8px;
             height: 8px;
             border-radius: 100%;
         }
     
         .title-status {
-            color: #647196;
+            color: $gray-dark;
         }
     }
 
     .number-status {
-        color: #647196;
+        color: $gray-dark;
         font-weight: 700;
     }
 }

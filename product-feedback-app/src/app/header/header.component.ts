@@ -9,7 +9,7 @@ import { MenuComponent } from '../menu/menu.component';
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
-  isMenuOpen: boolean = true;
+  isMenuOpen: boolean = false;
 
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
