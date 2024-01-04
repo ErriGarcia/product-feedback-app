@@ -1,11 +1,12 @@
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { Component } from '@angular/core';
-import { MatOptionModule, MatPseudoCheckboxModule } from '@angular/material/core';
+import { MatOptionModule } from '@angular/material/core';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-main',
   standalone: true,
-  imports: [MatOptionModule, MatSlideToggleModule],
+  imports: [MatOptionModule, MatSlideToggleModule, RouterLink],
   templateUrl: './main.component.html',
   styleUrl: './main.component.scss'
 })
