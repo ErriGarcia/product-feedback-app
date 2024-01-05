@@ -10,5 +10,5 @@ import { RouterLink } from '@angular/router';
   styleUrl: './add-feedback.component.scss'
 })
 export class AddFeedbackComponent {
-  title: string = 'Title';
+  title: string = 'Create New Feedback';
 }
