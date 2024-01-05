@@ -13,6 +13,8 @@ import { TextareaComponent } from '../core/shared/components/textarea/textarea.c
 })
 export class AddFeedbackComponent {
   title: string = 'Create New Feedback';
+  labelInput: string = 'Feedback Title'
+  descriptionInput: string = 'Add a short, descriptive headline';
   labelCategory: string = 'Category';
   descriptionCategory: string = 'Choose a category for your feedback';
   labelTextarea: string = 'Feedback Detail';
