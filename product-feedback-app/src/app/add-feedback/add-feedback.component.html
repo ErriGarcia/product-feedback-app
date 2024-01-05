@@ -1,13 +1,13 @@
-<nav>
-    <img src="../../assets/shared/icon-arrow-left.svg">
-    <button routerLink="/">Go Back</button>
-</nav>
-<main>
-    <div>
+<main class="main">
+    <nav class="main_nav">
+        <img src="../../assets/shared/icon-arrow-left.svg">
+        <button class="main_nav_button" routerLink="/">Go Back</button>
+    </nav>
+    <div class="container-card">
         <!-- TODO: put general img -->
-        <img src="../../assets/shared/icon-new-feedback.svg" alt="">
+        <img class="container-card_img" src="../../assets/shared/icon-new-feedback.svg" alt="">
         <form>
-            <h2>{{ title }}</h2>
+            <h2 class="container-card_title">{{ title }}</h2>
             <app-input></app-input>
             <app-select 
                 [label]="labelCategory"

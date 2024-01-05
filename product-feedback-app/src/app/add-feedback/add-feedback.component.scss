@@ -1,0 +1,35 @@
+@import '../../styles/base/settings';
+
+.main {
+    background-color: $gray-light;
+    height: 100vh;
+    padding: 32px 24px;
+
+    &_nav {
+        color: $gray-dark;
+        font-weight: 700;
+
+        &_button {
+            margin-left: 16px;
+        }
+    }
+
+    .container-card {
+        background-color: $white;
+        border-radius: 10px;
+        margin-top: 60px;
+        padding: 44px 24px 24px 24px;
+
+        &_img {
+            position: absolute;
+            top: 11%;
+            width: 40px;
+            left: 14%;
+        }
+
+        &_title {
+            color: $gray-extra-dark;
+            font-size: 18px;
+        }
+    }
+}
