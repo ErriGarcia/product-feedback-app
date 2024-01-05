@@ -10,10 +10,14 @@
             <h2>{{ title }}</h2>
             <app-input></app-input>
             <app-select 
-                [label]="'Category'"
-                [description]="'Choose a category for your feedback'"
+                [label]="labelCategory"
+                [description]="descriptionCategory"
                 [options]="categories"
             ></app-select>
+            <app-textarea
+                [label]="labelTextarea"
+                [description]="descriptionTextarea"
+            ></app-textarea>
         </form>
     </div>
 </main>
