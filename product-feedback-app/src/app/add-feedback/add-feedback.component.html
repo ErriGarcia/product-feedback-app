@@ -4,12 +4,16 @@
 </nav>
 <main>
     <div>
-        <!-- general img -->
+        <!-- TODO: put general img -->
         <img src="../../assets/shared/icon-new-feedback.svg" alt="">
         <form>
             <h2>{{ title }}</h2>
             <app-input></app-input>
+            <app-select 
+                [label]="'Category'"
+                [description]="'Choose a category for your feedback'"
+                [options]="categories"
+            ></app-select>
         </form>
-
     </div>
 </main>

@@ -8,13 +8,13 @@ import { Component } from '@angular/core';
   styleUrl: './menu.component.scss'
 })
 export class MenuComponent {
-  buttonsMenu: any[] = [
-    {id: 1, nameButton: 'All'}, 
-    {id: 2, nameButton: 'UI'}, 
-    {id: 3, nameButton: 'UX'}, 
-    {id: 4, nameButton: 'Enhancement'}, 
-    {id: 5, nameButton: 'Bug'}, 
-    {id: 6, nameButton: 'Feature'}
+  categories: any[] = [
+    {id: 1, categoryName: 'All'}, 
+    {id: 2, categoryName: 'UI'}, 
+    {id: 3, categoryName: 'UX'}, 
+    {id: 4, categoryName: 'Enhancement'}, 
+    {id: 5, categoryName: 'Bug'}, 
+    {id: 6, categoryName: 'Feature'}
   ];
 
   roadmapStatus: any[] = [

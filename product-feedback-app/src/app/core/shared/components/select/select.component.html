@@ -1,1 +1,7 @@
-<p>select works!</p>
+<label for="label">{{ label }}</label>
+<p>{{ description }}</p>
+<select id="label">
+    @for (element of options; track element.id) {
+        <option value="element.name">{{ element.name }}</option>
+    }
+</select>

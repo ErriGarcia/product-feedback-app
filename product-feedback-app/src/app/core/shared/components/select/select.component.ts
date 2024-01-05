@@ -1,4 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+
+interface itemsType {
+  id: string;
+  name: string;
+}
 
 @Component({
   selector: 'app-select',
@@ -7,6 +12,18 @@ import { Component } from '@angular/core';
   templateUrl: './select.component.html',
   styleUrl: './select.component.scss'
 })
-export class SelectComponent {
+export class SelectComponent { 
+  @Input() label: string = '';
+  @Input() description: string = '';
+  @Input() options: itemsType[] = [];
+  @Input() element: string = '';
 
+  categories: any[] = [
+    {id: 1, categoryName: 'All'}, 
+    {id: 2, categoryName: 'UI'}, 
+    {id: 3, categoryName: 'UX'}, 
+    {id: 4, categoryName: 'Enhancement'}, 
+    {id: 5, categoryName: 'Bug'}, 
+    {id: 6, categoryName: 'Feature'}
+  ];
 }
