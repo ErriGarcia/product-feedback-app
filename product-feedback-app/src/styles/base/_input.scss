@@ -1,0 +1,23 @@
+.container-input {
+    margin-top: 24px;
+    font-size: 13px;
+
+    label {
+        color: $gray-extra-dark;
+        font-weight: 700;
+    }
+
+    .description {
+        color: $gray-dark;
+        margin-top: 3px;
+    }
+
+    .input {
+        margin-top: 1rem;
+        border: none;
+        background-color: $gray-light;
+        height: 48px;
+        width: 100%;
+        border-radius: 5px;
+    }
+}

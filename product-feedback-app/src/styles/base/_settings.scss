@@ -93,38 +93,3 @@ $datepicker-border--invalid: $red;
 // slider
 $slider-track-bg: $gray-light;
 $slider-track-fill-bg: $blue;
-
-
-// TODO: create new file for buttons style
-.primary-button {
-    background-color: $violet;
-    font-size: 13px;
-    font-weight: 700;
-    padding: 10px 16px;
-    border-radius: 10px;
-}
-
-// TODO: create a different file
-.container-input {
-    margin-top: 24px;
-    font-size: 13px;
-
-    label {
-        color: $gray-extra-dark;
-        font-weight: 700;
-    }
-
-    .description {
-        color: $gray-dark;
-        margin-top: 3px;
-    }
-
-    .input {
-        margin-top: 1rem;
-        border: none;
-        background-color: $gray-light;
-        height: 48px;
-        width: 100%;
-        border-radius: 5px;
-    }
-}
