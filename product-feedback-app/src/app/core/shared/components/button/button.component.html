@@ -1,0 +1,4 @@
+<button [class.primary-button]="['Add Feedback', 'Post Comment'].includes(text)"
+        [class.secondary-button]="text === 'Cancel'"
+        [class.tertiary-button]="text === 'Edit Feedback'"
+        [class.warning-button]="text === 'Delete'">{{ text }}</button>
