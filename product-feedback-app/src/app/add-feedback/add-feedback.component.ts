@@ -3,11 +3,12 @@ import { InputComponent } from '../core/shared/components/input/input.component'
 import { RouterLink } from '@angular/router';
 import { SelectComponent } from '../core/shared/components/select/select.component';
 import { TextareaComponent } from '../core/shared/components/textarea/textarea.component';
+import { ButtonComponent } from '../core/shared/components/button/button.component';
 
 @Component({
   selector: 'app-add-feedback',
   standalone: true,
-  imports: [InputComponent, RouterLink, SelectComponent, TextareaComponent],
+  imports: [InputComponent, RouterLink, SelectComponent, TextareaComponent, ButtonComponent],
   templateUrl: './add-feedback.component.html',
   styleUrl: './add-feedback.component.scss'
 })
@@ -19,6 +20,8 @@ export class AddFeedbackComponent {
   descriptionCategory: string = 'Choose a category for your feedback';
   labelTextarea: string = 'Feedback Detail';
   descriptionTextarea: string = 'Include any specific comments on what should be improved, added, etc.';
+  addFeedbackButton: string = 'Add Feedback';
+  cancelButton: string = 'Cancel'
 
   categories: any[] = [
     {id: 1, name: 'All'}, 

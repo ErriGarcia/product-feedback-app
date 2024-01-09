@@ -8,19 +8,33 @@
         <img class="container-card_img" src="../../assets/shared/icon-new-feedback.svg" alt="">
         <form>
             <h2 class="container-card_title">{{ title }}</h2>
+
+            <!-- Input component -->
             <app-input
                 [label]="labelInput"
                 [description]="descriptionInput"
             ></app-input>
+
+            <!-- Select component -->
             <app-select 
                 [label]="labelCategory"
                 [description]="descriptionCategory"
                 [options]="categories"
             ></app-select>
+
+            <!-- Textarea component -->
             <app-textarea
                 [label]="labelTextarea"
                 [description]="descriptionTextarea"
             ></app-textarea>
+            
+            <!-- Buttons -->
+            <app-button
+            [text]="addFeedbackButton"
+            ></app-button>
+            <app-button
+            [text]="cancelButton"
+            ></app-button>
         </form>
     </div>
 </main>
