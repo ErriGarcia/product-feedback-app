@@ -1,6 +1,7 @@
 // TODO: group same styles to mixin
 // TODO: add style when hover, focus, disabled
 .primary-button {
+    width: 100%;
     background-color: $violet;
     font-size: 13px;
     color: $white;
@@ -10,6 +11,7 @@
 }
 
 .secondary-button {
+    width: 100%;
     background-color: $gray-extra-dark;
     font-size: 13px;
     color: $white;

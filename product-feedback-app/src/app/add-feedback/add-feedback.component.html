@@ -28,13 +28,11 @@
                 [description]="descriptionTextarea"
             ></app-textarea>
             
-            <!-- Buttons -->
-            <app-button
-            [text]="addFeedbackButton"
-            ></app-button>
-            <app-button
-            [text]="cancelButton"
-            ></app-button>
+            <div class="container-buttons">
+                <!-- Buttons -->
+                <app-button class="container-buttons_button" [text]="addFeedbackButton"></app-button>
+                <app-button class="container-buttons_button" [text]="cancelButton"></app-button>
+            </div>
         </form>
     </div>
 </main>

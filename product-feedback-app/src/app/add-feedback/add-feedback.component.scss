@@ -33,4 +33,17 @@
             font-size: 18px;
         }
     }
+
+    .container-buttons {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        row-gap: 16px;
+        margin-top: 40px;
+
+        &_button {
+            width: 100%;
+        }
+    }
 }
