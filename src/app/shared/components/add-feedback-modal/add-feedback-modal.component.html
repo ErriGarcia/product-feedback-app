@@ -1,0 +1,43 @@
+<main class="main">
+    <nav class="main_nav">
+        <img routerLink="/" src="../../assets/shared/icon-arrow-left.svg">
+        <button class="main_nav_button" routerLink="/">Go Back</button>
+    </nav>
+    <div class="container-card">
+        <img class="container-card_img" src="../../assets/shared/icon-new-feedback.svg" alt="">
+        <form>
+            <h2 class="container-card_title">{{ title }}</h2>
+
+            <!-- Input -->
+            <div class="container-input">
+                <label class="label" for="input">{{ labelInput }}</label>
+                <p class="description">{{ descriptionInput }}</p>
+                <input class="input" type="text" id="input">
+            </div>
+
+            <!-- Select -->
+            <div class="container-input">
+                <label class="label" for="select">{{ labelCategory }}</label>
+                <p class="description">{{ descriptionCategory }}</p>
+                <select class="input" id="select">
+                    @for (element of categories; track element.id) {
+                        <option value="element.name">{{ element.name }}</option>
+                    }
+                </select>
+            </div>
+
+            <!-- Textarea component -->
+            <div class="container-input">
+                <label class="label" for="textarea">{{ labelTextarea }}</label>
+                <p class="description">{{ descriptionTextarea }}</p>
+                <textarea class="input" id="textarea"></textarea>
+            </div>
+            
+            <div class="container-buttons">
+                <!-- Buttons -->
+                <button class="primary-button">Add Feedback</button>
+                <button class="secondary-button">Cancel</button>
+            </div>
+        </form>
+    </div>
+</main>

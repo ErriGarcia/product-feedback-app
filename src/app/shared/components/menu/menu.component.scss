@@ -1,0 +1,116 @@
+@import '../../../../styles/base/settings';
+
+nav .m-menu {
+    position: absolute;
+    top: 74px;
+    right: 0;
+    max-width: 450px;
+    width: calc(100vw - 80px);
+    height: 100%;
+    transition: transform 0.35s;
+    z-index: 2;
+    overflow: hidden;
+    background-color: $gray-light;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 24px;
+}
+
+nav .m-menu_overlay {
+    background-color: $gray-light;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    bottom: 0;
+    z-index: 1;
+    display: none;
+}
+
+.container {
+
+    background-color: $white;
+    padding: 24px;
+    border-radius: 10px;
+    width: 223px;
+    // height: 20%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    row-gap: 14px;
+    column-gap: 8px;
+
+    &_header {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        &_title {
+            color: $gray-extra-dark;
+        }
+
+        &_button {
+            text-decoration: underline;
+            color: $blue;
+        }
+    }
+}
+
+.button {
+    font-weight: 700;
+    color: $blue;
+    background-color: #F2F4FF;
+    padding: 6px 16px;
+    border-radius: 10px;
+    height: 35px;
+
+    &:hover {
+        color: white;
+        background-color: $blue;
+    }
+}
+
+.list-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .title-container {
+        display: flex;
+        align-items: center;
+        column-gap: 16px;
+    
+        .pink {
+            background-color: $orange;
+            width: 8px;
+            height: 8px;
+            border-radius: 100%;
+        }
+    
+        .violet {
+            background-color: $violet;
+            width: 8px;
+            height: 8px;
+            border-radius: 100%;
+        }
+    
+        .light-blue {
+            background-color: $blue-light;
+            width: 8px;
+            height: 8px;
+            border-radius: 100%;
+        }
+    
+        .title-status {
+            color: $gray-dark;
+        }
+    }
+
+    .number-status {
+        color: $gray-dark;
+        font-weight: 700;
+    }
+}

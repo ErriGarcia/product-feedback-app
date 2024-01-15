@@ -1,0 +1,13 @@
+<div class="sort-container">
+    <form>
+        <label for="sort" class="sort-container_title">Sort by :</label>
+        <select class="sort-container_select" id="sort" [disabled]="false">
+            @for (item of menuItems; track item) {
+                <option>
+                    {{item.name}}
+                <option>
+            }
+        </select>
+    </form>
+    <button class="primary-button" (click)="openModal()">+ Add Feedback</button>
+</div>

@@ -1,9 +1,0 @@
-<div class="container-input">
-    <label class="label" for="select">{{ label }}</label>
-    <p class="description">{{ description }}</p>
-    <select class="input" id="select">
-        @for (element of options; track element.id) {
-            <option value="element.name">{{ element.name }}</option>
-        }
-    </select>
-</div>

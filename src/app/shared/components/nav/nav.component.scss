@@ -1,0 +1,17 @@
+.sort-container {
+    background-color: #3A4374;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    padding: 1rem 1.5rem;
+
+    &_select {
+        background-color: transparent;
+        border: transparent;
+    }
+
+    .primary-button {
+        width: 40%;
+    }
+}

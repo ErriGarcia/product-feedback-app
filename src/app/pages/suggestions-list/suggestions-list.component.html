@@ -1,0 +1,24 @@
+<main>
+    <ul>
+        @for (suggestion of suggestionsList; track suggestion.id) {
+            <li>
+                <div>
+                    <h2>
+                        {{ suggestion.title }}
+                    </h2>
+                    <p>
+                        {{ suggestion.description }}
+                    </p>
+                    <p>
+                        {{ suggestion.category }}
+                    </p>
+                    <div>
+                        {{ suggestion.upvotes }}
+                    </div>
+                    <img src="../../../assets/shared/icon-comments.svg" alt="icon-comments">
+                    <p> {{ suggestion?.comments?.length}} </p>
+                </div>
+            </li>
+        }
+    </ul>
+</main>
