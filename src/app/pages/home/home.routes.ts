@@ -6,18 +6,18 @@ export const HomeRoutes: Routes = [
     {
         path: '',
         pathMatch: 'full',
-        redirectTo: 'suggestionsList'
+        redirectTo: 'suggestions'
     },
     {
         path: '',
         component: HomeComponent,
         children: [
             {
-                path: 'suggestionsList',
+                path: 'suggestions',
                 loadChildren: () => import('../suggestions-list/suggestions-list.routes').then(m => m.SuggestionsListRoutes)
             },
             {
-                path: 'suggestionDetail',
+                path: 'suggestion/:id',
                 loadChildren: () => import('../suggestion-detail/suggestion-detail.routes').then(m => m.SuggestionDetailRoutes)
             }
         ]
