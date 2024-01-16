@@ -1,9 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { CardComponent } from '../../shared/components/card/card.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-suggestions-list',
   standalone: true,
-  imports: [],
+  imports: [CardComponent],
   templateUrl: './suggestions-list.component.html',
   styleUrl: './suggestions-list.component.scss'
 })
@@ -171,5 +173,11 @@ export class SuggestionsListComponent {
         }
       ]
     },
-  ]
+  ];
+
+  private router = inject(Router);
+
+  viewDetailSuggestion(id: number) {
+    this.router.navigate([`suggestion/${id}`])
+  }
 }
