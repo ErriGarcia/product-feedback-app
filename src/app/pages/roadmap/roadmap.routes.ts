@@ -20,5 +20,6 @@ export const RoadMapRoutes: Routes = [
                 path: 'roadmapDetail',
                 loadChildren: () => import('../roadmap-detail/roadmap-detail.routes').then(m => m.RoadmapDetailRoutes)
             }
-]},
+        ]
+    },
 ];

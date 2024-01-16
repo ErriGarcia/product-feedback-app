@@ -1,0 +1,18 @@
+<div class="suggestion-list_element" (click)="selectSuggestion()">
+    @if (suggestion) {
+        <h2>
+            {{ suggestion.title }}
+        </h2>
+        <p>
+            {{ suggestion.description }}
+        </p>
+        <p>
+            {{ suggestion.category }}
+        </p>
+        <div>
+            {{ suggestion.upvotes }}
+        </div>
+        <img src="assets/shared/icon-comments.svg" alt="icon-comments">
+        <p> {{ suggestion?.comments?.length}} </p>
+    }
+</div>
