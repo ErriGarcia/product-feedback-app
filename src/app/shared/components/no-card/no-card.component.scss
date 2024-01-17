@@ -1,0 +1,27 @@
+@import '../../../../styles/base/settings';
+
+.no-suggestion-card {
+    background-color: $white;
+    padding: 80px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 24px;
+
+    &_img {
+        width: 40%;
+    }
+
+    &_title {
+        color: $gray-extra-dark;
+    }
+
+    &_description {
+        color: $gray-dark;
+        text-align: center;
+    }
+
+    .primary-button {
+        width: 45%;
+    }
+}

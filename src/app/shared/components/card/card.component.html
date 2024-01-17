@@ -1,24 +1,26 @@
 <div class="suggestion-card" (click)="selectSuggestion()">
     @if (suggestion) {
         <h2 class="suggestion-card_title">
-            {{ suggestion.title }}
+            {{ suggestion?.title }}
         </h2>
         <p class="suggestion-card_description">
-            {{ suggestion.description }}
+            {{ suggestion?.description }}
         </p>
         <button  class="suggestion-card_category">
-            {{ suggestion.category }}
+            {{ suggestion?.category }}
         </button>
         <div class="suggestion-card_container">
             <button class="suggestion-card_container_votes">
                 <svg width="10" height="7" xmlns="http://www.w3.org/2000/svg"><path d="M1 6l4-4 4 4" stroke="#4661E6" stroke-width="2" fill="none" fill-rule="evenodd"/>
                 </svg>
-                {{ suggestion.upvotes }}
+                {{ suggestion?.upvotes }}
             </button>
             <div class="suggestion-card_container_comments">
                 <img src="assets/shared/icon-comments.svg" alt="icon-comments">
                 <p> {{ suggestion?.comments?.length}} </p>
             </div>
         </div>
+    } @else if (!suggestion) {
+        <app-no-card></app-no-card>
     }
 </div>

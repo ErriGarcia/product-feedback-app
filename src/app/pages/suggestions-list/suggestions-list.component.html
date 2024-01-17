@@ -1,7 +1,12 @@
 <main class="main-background">
     <div class="suggestion-list">
-        @for (suggestion of suggestionsList; track suggestion.id) {
-            <app-card [suggestion]="suggestion" (suggestionSelected)="viewDetailSuggestion($event)"></app-card>
+        @if (!suggestionsList.length) {
+            <app-no-card></app-no-card>
+        }
+        @else {
+            @for (suggestion of suggestionsList; track suggestion.id) {
+                <app-card [suggestion]="suggestion" (suggestionSelected)="viewDetailSuggestion($event)"></app-card>
+            }
         }
     </div>
 </main>
