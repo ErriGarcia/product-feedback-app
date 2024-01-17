@@ -1,0 +1,56 @@
+@import '../../../../styles/base/settings';
+
+.suggestion-card {
+    border-radius: 10px;
+    background-color: $white;
+    font-size: 16px;
+    padding: 24px;
+    width: 330px;
+
+    &_title {
+        color: $gray-extra-dark;
+        font-size: 16px;
+    }
+
+    &_description {
+        margin-top: 8px;
+        color: $gray-dark;
+    }
+
+    &_category {
+        margin-top: 16px;
+        border-radius: 10px;
+        color: $blue;
+        background-color: $gray;
+        padding: 5px 16px;
+        font-weight: 700;
+
+        &:first-letter {
+            text-transform: uppercase;
+        }
+    }
+
+    &_container {
+        font-size: 13px;
+        margin-top: 16px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-weight: 700;
+
+        &_votes {
+            display: flex;
+            align-items: center;
+            column-gap: 4px;
+            padding: 6px 12px;
+            background-color: #F2F4FE;
+            border-radius: 10px;
+        }
+
+        &_comments {
+            display: flex;
+            align-items: center;
+            column-gap: 4px;
+        }
+    }
+}

@@ -4,7 +4,7 @@
   "compilerOptions": {
     "baseUrl": "src",
     "paths": {
-      "@api/*" : ["app/core/mock-api/*"] 
+      "@api/*" : ["app/core/mock-api/*"]
     },
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
