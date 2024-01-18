@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { NoCardComponent } from '../no-card/no-card.component';
+import { Suggestion } from 'app/pages/suggestion-detail/suggestion.interface';
 
 @Component({
   selector: 'app-card',
@@ -8,11 +9,12 @@ import { NoCardComponent } from '../no-card/no-card.component';
   templateUrl: './card.component.html',
   styleUrl: './card.component.scss'
 })
+
 export class CardComponent {
   @Input() suggestion: any;
-  @Output() suggestionSelected: EventEmitter<number> = new EventEmitter<number>();
+  @Output() suggestionSelected: EventEmitter<Suggestion> = new EventEmitter<Suggestion>();
 
   selectSuggestion() {
-    this.suggestionSelected.emit(this.suggestion.id);
+    this.suggestionSelected.emit(this.suggestion);
   }
 }
