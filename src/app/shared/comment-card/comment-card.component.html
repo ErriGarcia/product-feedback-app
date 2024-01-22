@@ -1,0 +1,32 @@
+<div class="comment-card">
+    <h3 class="comment-card_title"> {{ suggestion?.comments?.length }} Comments </h3>
+    @for (suggestionComment of suggestion?.comments; track suggestionComment?.id) {
+        <div class="comment-card_container">
+            <div class="comment-card_container_user-details">
+                    <div class="comment-card_container_user-details_container">
+                        <img class="comment-card_container_user-details_container_image" [src]="suggestionComment?.user?.image" alt="{{ suggestionComment?.user?.image }}">
+                        <div>
+                            <h4> {{ suggestionComment?.user?.name }} </h4>
+                            <p class="comment-card_container_user-details_container_username"> {{ suggestionComment?.user?.username }} </p>
+                        </div>
+                    </div>
+                <button class="button_reply"> Reply </button>
+            </div>
+            <p class="comment-card_container_content"> {{ suggestionComment?.content }} </p>
+        </div>
+        <br class="line">
+        @if (suggestionComment?.replies) {
+            @for (commentReply of suggestionComment?.replies; track $index) {
+                <div>
+                    <div>
+                        <img [src]="commentReply?.user?.image" alt="{{ commentReply?.user?.image }}">
+                        <h4> {{ commentReply?.user?.name }} </h4>
+                        <p> {{ commentReply?.user?.username }} </p>
+                    </div>
+                    <button> Reply </button>
+                </div>
+                <p> {{ commentReply?.content }} </p>
+            }
+        }
+    }
+</div>
