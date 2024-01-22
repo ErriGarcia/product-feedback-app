@@ -1,5 +1,18 @@
-<nav class="main_nav">
-    <img routerLink="/" src="../../assets/shared/icon-arrow-left.svg">
-    <button class="main_nav_button" routerLink="/">Go Back</button>
-    <button class="tertiary-button">Edit Feedback</button>
-</nav>
+<main class="main-background">
+    <nav class="main_nav">
+        <div>
+            <img routerLink="/" src="assets/shared/icon-arrow-left.svg">
+            <button class="main_nav_button" routerLink="/">Go Back</button>
+        </div>
+        <button class="tertiary-button">Edit Feedback</button>
+    </nav>
+    
+    <div class="suggestion-comment-container">
+        <app-card [suggestion]="suggestion"></app-card>
+        @if (suggestion?.comments?.length) {
+            <app-comment-card [suggestion]="suggestion"></app-comment-card>
+        }
+    </div>
+
+
+</main>

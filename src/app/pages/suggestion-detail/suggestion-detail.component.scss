@@ -1,0 +1,22 @@
+@import '../../../styles/base/all';
+
+.main_nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: $gray-dark;
+    font-weight: 700;
+    margin-bottom: 24px;
+
+    &_button {
+        margin-left: 16px;
+        font-size: 13px;
+    }
+}
+
+.suggestion-comment-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    row-gap: 24px;
+}
