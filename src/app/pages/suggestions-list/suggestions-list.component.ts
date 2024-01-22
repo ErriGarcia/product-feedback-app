@@ -179,7 +179,7 @@ export class SuggestionsListComponent {
 
   private router = inject(Router);
 
-  viewDetailSuggestion(suggestion: Suggestion) {
-    this.router.navigate([`suggestion/${suggestion.id}`])
+  viewDetailSuggestion(suggestion: any) {
+    this.router.navigate([`suggestion/${suggestion}`])
   }
 }
