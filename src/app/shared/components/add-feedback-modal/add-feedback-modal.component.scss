@@ -1,9 +1,10 @@
-@import '../../styles/base/settings';
+@import '../../../../styles/base/all';
 
 .main {
     background-color: $gray-light;
-    height: 100vh;
+    // height: 100vh;
     padding: 32px 24px;
+    padding: 24px;
 
     &_nav {
         color: $gray-dark;

@@ -5,7 +5,7 @@ import { cloneDeep } from 'lodash-es';
 import { assign } from 'lodash-es';
 
 @Injectable({ providedIn: 'root' })
-export class SuggestionsMockApi {
+export class DeleteSuggestionsMockApi {
     private _suggestions: any[] = suggestions;
 
     /**
@@ -25,35 +25,33 @@ export class SuggestionsMockApi {
      */
     registerHandlers(): void {
         // -----------------------------------------------------------------------------------------------------
-        // @ Categories - GET
+        // @ Categories - DELETE
         // -----------------------------------------------------------------------------------------------------
-        this._fuseMockApiService
-            .onGet('api/suggestions')
-            .reply(() => {
-                // Clone the categories
-                const suggestions = cloneDeep(this._suggestions);
 
-                return [200, suggestions];
-        });
 
+        // TODO: complete the request
+
+        /**
+         * Delete suggestion
+         */
         this._fuseMockApiService
-            .onPatch('api/suggestions')
+            .onDelete('api/suggestions/suggestion')
             .reply(({ request }) => {
-                // Get the id and chat
+                // Get the id and suggestion
                 const id = request.body.id;
                 const suggestion = cloneDeep(request.body.suggestion);
 
-                // Prepare the updated chat
+                // Prepare the updated suggestion
                 let updatedSuggestion = null;
 
-                // Find the chat and update it
+                // Find the suggestion and update it
                 this._suggestions.forEach((item, index, suggestions) => {
                     if (item.id === id) {
                         debugger
-                        // Update the chat
+                        // Update the suggestion
                         suggestions[index] = assign({}, suggestions[index], suggestion);
 
-                        // Store the updated chat
+                        // Store the suggestion chat
                         updatedSuggestion = suggestions[index];
                     }
                 });
@@ -61,20 +59,6 @@ export class SuggestionsMockApi {
             // Return the response
             return [200, updatedSuggestion];
         });
-
-            this._fuseMockApiService
-            .onGet('api/suggestions/suggestion')
-            .reply(({request}) => {
-
-                const id = request.params.get('id');
-                // Clone the categories
-                const suggestions = cloneDeep(this._suggestions);
-                console.log(suggestions, 'suggestions');
-                
-                const suggestion = suggestions.filter(element => element.id === Number(id));
-
-                return [200, suggestion];
-            });
 
     }
 }

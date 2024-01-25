@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { MatDialogRef } from '@angular/material/dialog';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -8,7 +9,7 @@ import { RouterLink } from '@angular/router';
   templateUrl: './add-feedback-modal.component.html',
   styleUrl: './add-feedback-modal.component.scss'
 })
-export class AddFeedbackModalComponent {
+export class AddFeedbackModalComponent implements OnInit {
   title: string = 'Create New Feedback';
   labelInput: string = 'Feedback Title'
   descriptionInput: string = 'Add a short, descriptive headline';
@@ -28,4 +29,13 @@ export class AddFeedbackModalComponent {
     {id: 6, name: 'Feature'}
   ];
 
+  constructor(public dialogRef: MatDialogRef<AddFeedbackModalComponent>) { }
+
+  ngOnInit(): void {
+    
+  }
+
+  closeDialog() {
+    this.dialogRef.close();
+  }
 }

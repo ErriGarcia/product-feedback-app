@@ -1,4 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import {
+  MatDialog,
+  MAT_DIALOG_DATA,
+  MatDialogRef,
+  MatDialogTitle,
+  MatDialogContent,
+  MatDialogActions,
+  MatDialogClose,
+} from '@angular/material/dialog';
+import { AddFeedbackModalComponent } from '../add-feedback-modal/add-feedback-modal.component';
 
 @Component({
   selector: 'app-nav',
@@ -15,7 +25,17 @@ export class NavComponent {
     { id: 15, name: 'Least Upvotes' },
   ];
 
+  constructor(public dialogRef: MatDialog) { }
+
   openModal() {
     // open modal to create feedback
+    let dialogRef = this.dialogRef.open(AddFeedbackModalComponent, {
+      // width: '1000px',
+      // height: '800px'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(result, 'result');
+    })
   }
 }
